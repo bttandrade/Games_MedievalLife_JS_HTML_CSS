@@ -1,0 +1,218 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container-all {
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    height: 580px;
+    width: 650px;
+}
+
+#container-top {
+    border: 1px solid;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#box-turn {
+    display: flex;
+    gap: 30px;
+}
+
+.turn {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.turn-icon {
+    height: 50px;
+    width: 50px;
+    filter: grayscale(.8);
+}
+
+.turn:first-of-type > .turn-icon {
+    filter: grayscale(0);
+}
+
+#box-calendar {
+    display: flex;
+    gap: 20px;
+}
+
+#container-main {
+    border: 1px solid;
+    height: 100%;
+    display: flex;
+}
+
+#box-left-side {
+    width: 45%;
+}
+
+#main-left-side {
+    border: 1px solid;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#hero-pic {
+    border: 1px solid;
+    border-radius: 10px;
+    height: 120px;
+    width: 120px;
+}
+
+#box-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-stats {
+    height: 30px;
+    width: 30px;
+}
+
+.icon-stats:nth-of-type(2), .icon-stats:nth-of-type(3) {
+    margin-left: 20px;
+}
+
+#box-left-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.left-btns {
+    border: 1px solid;
+    border-radius: 5px;
+    height: 50px;
+    width: 160px;
+}
+
+#profile-left-side {
+    display: none;
+    height: 100%;
+    justify-content: space-around;
+    padding: 20px 0;
+    align-items: center;
+    flex-direction: column;
+}
+
+#inventario {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.box-inv {
+    border: 1px solid;
+    margin: 10px;
+    height: 90px;
+    width: 90px;
+}
+
+#stats-txt h4 {
+    border: 1px solid;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+#go-back, #train-go-back, #jobs-go-back {
+    border: 1px solid;
+    border-radius: 5px;
+    height: 30px;
+    width: 120px;
+}
+
+#box-right-side {
+    border: 1px solid;
+    display: grid;
+    overflow: auto;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 55%;
+    height: 500px;
+}
+
+.main-btns {
+    border: 1px solid;
+    border-radius: 10px;
+    margin-top: 30px;
+    height: 90px;
+    width: 110px;
+}
+
+.main-btns:nth-of-type(9), .main-btns:nth-of-type(10) {
+    margin-bottom: 30px;
+}
+
+.btns {
+    height: 30px;
+    width: 30px;
+}
+
+#training {
+    border: 1px solid;
+    width: 55%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.train-btns {
+    border: 1px solid;
+    border-radius: 10px;
+    height: 160px;
+    width: 260px;
+}
+
+#jobs {
+    display: none;
+    grid-template-columns: auto;
+    overflow: auto;
+    padding: 30px;
+    justify-content: space-around;
+    align-items: center;
+    width: 55%;
+    height: 500px;
+}
+
+.jobs-btns {
+    border: 1px solid;
+    border-radius: 10px;
+    height: 60px;
+    width: 260px;
+}
+
+.jobs-info-btns {
+    height: 25px;
+    width: 25px;
+    border: 1px solid;
+    border-radius: 50%;
+    position: relative;
+    bottom: 42px;
+    left: 215px;
+}
