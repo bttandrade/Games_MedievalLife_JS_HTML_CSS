@@ -3,10 +3,11 @@ const profileLeftBox = document.getElementById('profile-left-side');
 const rightBox = document.getElementById('box-right-side');
 const trainingBox = document.getElementById('training');
 const jobBox = document.getElementById("jobs");
+const cityBox = document.getElementById("city");
+const socialBox = document.getElementById("social");
 
 const goBack = document.getElementById('go-back');
 const trainGoBack = document.getElementById('train-go-back');
-
 
 const leftBackBtns = document.getElementsByClassName('left-go-back');
 const rightBackBtns = document.getElementsByClassName('right-go-back');
@@ -66,16 +67,36 @@ profileBtn.addEventListener('click', () => {
     mainLeftBox.style.display = 'none';
 });
 
-
 mainBtns[0].addEventListener('click', () => {
     rightBox.style.display = 'none';
     trainingBox.style.display = 'flex';
+    cityBox.style.display = 'none';
+    jobBox.style.display = 'none';
+    socialBox.style.display = 'none';
 });
 
-mainBtns[3].addEventListener('click', () => {
+mainBtns[2].addEventListener('click', () => {
     rightBox.style.display = 'none';
     trainingBox.style.display = 'none';
     jobBox.style.display = 'grid';
+    cityBox.style.display = 'none';
+    socialBox.style.display = 'none';
+});
+
+mainBtns[4].addEventListener('click', () => {
+    rightBox.style.display = 'none';
+    trainingBox.style.display = 'none';
+    jobBox.style.display = 'none';
+    cityBox.style.display = 'grid';
+    socialBox.style.display = 'none';
+});
+
+mainBtns[5].addEventListener('click', () => {
+    rightBox.style.display = 'none';
+    trainingBox.style.display = 'none';
+    jobBox.style.display = 'none';
+    cityBox.style.display = 'none';
+    socialBox.style.display = 'grid';
 });
 
 function leftMainMenu() {
@@ -87,6 +108,8 @@ function rightMainMenu() {
     rightBox.style.display = 'grid';
     trainingBox.style.display = 'none';
     jobBox.style.display = 'none';
+    cityBox.style.display = 'none';
+    socialBox.style.display = 'none';
 }
 
 for (let i = 0; i < leftBackBtns.length; i++) {
@@ -98,13 +121,36 @@ for (let i = 0; i < rightBackBtns.length; i++) {
 }
 
 const jobsBtns = document.getElementsByClassName('jobs-btns');
-
 for (let i = 0; i < jobsBtns.length; i++) {
     jobsBtns[i].onclick = btnfunciona;
 }
 
-const infoBtns = document.getElementsByClassName('jobs-info-btns');
+const infoJobsBtns = document.getElementsByClassName('jobs-info-btns');
+for (let i = 0; i < infoJobsBtns.length; i++) {
+    infoJobsBtns[i].onclick = btnfunciona2;
+}
 
-for (let i = 0; i < jobsBtns.length; i++) {
-    infoBtns[i].onclick = btnfunciona2;
+const trainBtns = document.getElementsByClassName('train-btns');
+for (let i = 0; i < trainBtns.length; i++) {
+    trainBtns[i].onclick = btnfunciona;
+}
+
+const infoTrainBtns = document.getElementsByClassName('train-info-btns');
+for (let i = 0; i < infoTrainBtns.length; i++) {
+    infoTrainBtns[i].onclick = btnfunciona2;
+}
+
+const cityBtns = document.getElementsByClassName('city-btns');
+for (let i = 0; i < cityBtns.length; i++) {
+    cityBtns[i].onclick = btnfunciona;
+}
+
+const socialInfoBtns = document.getElementsByClassName('social-info-btns');
+for (let i = 0; i < socialInfoBtns.length; i++) {
+    socialInfoBtns[i].onclick = btnfunciona2;
+}
+
+const socialBtns = document.getElementsByClassName('social-btns');
+for (let i = 0; i < socialBtns.length; i++) {
+    socialBtns[i].onclick = btnfunciona;
 }

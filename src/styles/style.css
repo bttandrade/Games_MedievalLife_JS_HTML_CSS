@@ -137,7 +137,7 @@ body {
     padding: 5px;
 }
 
-#go-back, #train-go-back, #jobs-go-back {
+.right-go-back {
     border: 1px solid;
     border-radius: 5px;
     height: 30px;
@@ -147,46 +147,46 @@ body {
 #box-right-side {
     border: 1px solid;
     display: grid;
-    overflow: auto;
     grid-template-columns: auto auto;
     justify-content: space-evenly;
+    padding: 10px;
     align-items: center;
     width: 55%;
-    height: 500px;
+    height: 100%;
 }
 
 .main-btns {
     border: 1px solid;
     border-radius: 10px;
-    margin-top: 30px;
     height: 90px;
     width: 110px;
-}
-
-.main-btns:nth-of-type(9), .main-btns:nth-of-type(10) {
-    margin-bottom: 30px;
-}
-
-.btns {
-    height: 30px;
-    width: 30px;
 }
 
 #training {
     border: 1px solid;
     width: 55%;
+    padding: 30px;
     height: 100%;
     display: none;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
 }
 
 .train-btns {
     border: 1px solid;
     border-radius: 10px;
-    height: 160px;
+    height: 60px;
     width: 260px;
+}
+
+.train-info-btns {
+    height: 25px;
+    width: 25px;
+    border: 1px solid;
+    border-radius: 50%;
+    position: relative;
+    bottom: 43px;
+    left: 100px;
 }
 
 #jobs {
@@ -208,6 +208,52 @@ body {
 }
 
 .jobs-info-btns {
+    height: 25px;
+    width: 25px;
+    border: 1px solid;
+    border-radius: 50%;
+    position: relative;
+    bottom: 42px;
+    left: 215px;
+}
+
+#city {
+    border: 1px solid;
+    display: none;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    padding: 10px;
+    align-items: center;
+    width: 55%;
+    height: 100%;
+}
+
+.city-btns {
+    border: 1px solid;
+    border-radius: 10px;
+    height: 100px;
+    width: 130px;
+}
+
+#social {
+    display: none;
+    grid-template-columns: auto;
+    overflow: auto;
+    padding: 30px;
+    justify-content: space-around;
+    align-items: center;
+    width: 55%;
+    height: 500px;
+}
+
+.social-btns {
+    border: 1px solid;
+    border-radius: 10px;
+    height: 60px;
+    width: 260px;
+}
+
+.social-info-btns {
     height: 25px;
     width: 25px;
     border: 1px solid;
