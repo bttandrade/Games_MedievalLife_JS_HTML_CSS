@@ -5,6 +5,8 @@ const trainingBox = document.getElementById('training');
 const jobBox = document.getElementById("jobs");
 const cityBox = document.getElementById("city");
 const socialBox = document.getElementById("social");
+const adventureBox = document.getElementById("adventure");
+const eventsBox = document.getElementById("events");
 
 const goBack = document.getElementById('go-back');
 const trainGoBack = document.getElementById('train-go-back');
@@ -73,6 +75,8 @@ mainBtns[0].addEventListener('click', () => {
     cityBox.style.display = 'none';
     jobBox.style.display = 'none';
     socialBox.style.display = 'none';
+    adventureBox.style.display = 'none';
+    eventsBox.style.display = 'none';
 });
 
 mainBtns[2].addEventListener('click', () => {
@@ -81,6 +85,8 @@ mainBtns[2].addEventListener('click', () => {
     jobBox.style.display = 'grid';
     cityBox.style.display = 'none';
     socialBox.style.display = 'none';
+    adventureBox.style.display = 'none';
+    eventsBox.style.display = 'none';
 });
 
 mainBtns[4].addEventListener('click', () => {
@@ -89,6 +95,8 @@ mainBtns[4].addEventListener('click', () => {
     jobBox.style.display = 'none';
     cityBox.style.display = 'grid';
     socialBox.style.display = 'none';
+    adventureBox.style.display = 'none';
+    eventsBox.style.display = 'none';
 });
 
 mainBtns[5].addEventListener('click', () => {
@@ -97,6 +105,28 @@ mainBtns[5].addEventListener('click', () => {
     jobBox.style.display = 'none';
     cityBox.style.display = 'none';
     socialBox.style.display = 'grid';
+    adventureBox.style.display = 'none';
+    eventsBox.style.display = 'none';
+});
+
+mainBtns[6].addEventListener('click', () => {
+    rightBox.style.display = 'none';
+    trainingBox.style.display = 'none';
+    jobBox.style.display = 'none';
+    cityBox.style.display = 'none';
+    socialBox.style.display = 'none';
+    adventureBox.style.display = 'flex';
+    eventsBox.style.display = 'none';
+});
+
+mainBtns[7].addEventListener('click', () => {
+    rightBox.style.display = 'none';
+    trainingBox.style.display = 'none';
+    jobBox.style.display = 'none';
+    cityBox.style.display = 'none';
+    socialBox.style.display = 'none';
+    adventureBox.style.display = 'none';
+    eventsBox.style.display = 'flex';
 });
 
 function leftMainMenu() {
@@ -110,6 +140,8 @@ function rightMainMenu() {
     jobBox.style.display = 'none';
     cityBox.style.display = 'none';
     socialBox.style.display = 'none';
+    adventureBox.style.display = 'none';
+    eventsBox.style.display = 'none';
 }
 
 for (let i = 0; i < leftBackBtns.length; i++) {
@@ -153,4 +185,24 @@ for (let i = 0; i < socialInfoBtns.length; i++) {
 const socialBtns = document.getElementsByClassName('social-btns');
 for (let i = 0; i < socialBtns.length; i++) {
     socialBtns[i].onclick = btnfunciona;
+}
+
+const adventureInfoBtns = document.getElementsByClassName('adventure-info-btns');
+for (let i = 0; i < adventureInfoBtns.length; i++) {
+    adventureInfoBtns[i].onclick = btnfunciona2;
+}
+
+const adventureBtns = document.getElementsByClassName('adventure-btns');
+for (let i = 0; i < adventureBtns.length; i++) {
+    adventureBtns[i].onclick = btnfunciona;
+}
+
+const eventsInfoBtns = document.getElementsByClassName('events-info-btns');
+for (let i = 0; i < eventsInfoBtns.length; i++) {
+    eventsInfoBtns[i].onclick = btnfunciona2;
+}
+
+const eventsBtns = document.getElementsByClassName('events-btns');
+for (let i = 0; i < eventsBtns.length; i++) {
+    eventsBtns[i].onclick = btnfunciona;
 }
