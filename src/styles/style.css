@@ -86,6 +86,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+}
+
+#force, #fame, #gold {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon-stats {
@@ -137,7 +144,7 @@ body {
     padding: 5px;
 }
 
-.right-go-back {
+.right-go-back, .right-city-back {
     border: 1px solid;
     border-radius: 5px;
     height: 30px;
@@ -162,7 +169,7 @@ body {
     width: 110px;
 }
 
-#training {
+#train, #adventure, #events, #city-tavern {
     border: 1px solid;
     width: 55%;
     padding: 30px;
@@ -172,14 +179,14 @@ body {
     align-items: center;
 }
 
-.train-btns {
+.train-btns, .adventure-btns, .events-btns, .city-tavern-btns {
     border: 1px solid;
     border-radius: 10px;
     height: 60px;
     width: 260px;
 }
 
-.train-info-btns {
+.train-info-btns, .adventure-info-btns, .events-info-btns, .tavern-info-btns {
     height: 25px;
     width: 25px;
     border: 1px solid;
@@ -189,7 +196,7 @@ body {
     left: 100px;
 }
 
-#jobs {
+#jobs, #social, #city-shop, #city-church, #city-smith {
     display: none;
     grid-template-columns: auto;
     overflow: auto;
@@ -200,14 +207,14 @@ body {
     height: 500px;
 }
 
-.jobs-btns {
+.jobs-btns, .social-btns, .city-church-btns, .city-shop-btns, .city-smith-btns {
     border: 1px solid;
     border-radius: 10px;
     height: 60px;
     width: 260px;
 }
 
-.jobs-info-btns {
+.jobs-info-btns, .social-info-btns, .church-info-btns, .shop-info-btns, .smith-info-btns {
     height: 25px;
     width: 25px;
     border: 1px solid;
@@ -218,14 +225,14 @@ body {
 }
 
 #city {
-    border: 1px solid;
     display: none;
     grid-template-columns: auto auto;
+    grid-row-gap: 30px;
     justify-content: space-evenly;
-    padding: 10px;
+    padding: 20px;
     align-items: center;
     width: 55%;
-    height: 100%;
+    height: fit-content;
 }
 
 .city-btns {
@@ -233,86 +240,4 @@ body {
     border-radius: 10px;
     height: 100px;
     width: 130px;
-}
-
-#social {
-    display: none;
-    grid-template-columns: auto;
-    overflow: auto;
-    padding: 30px;
-    justify-content: space-around;
-    align-items: center;
-    width: 55%;
-    height: 500px;
-}
-
-.social-btns {
-    border: 1px solid;
-    border-radius: 10px;
-    height: 60px;
-    width: 260px;
-}
-
-.social-info-btns {
-    height: 25px;
-    width: 25px;
-    border: 1px solid;
-    border-radius: 50%;
-    position: relative;
-    bottom: 42px;
-    left: 215px;
-}
-
-#adventure {
-    border: 1px solid;
-    width: 55%;
-    padding: 30px;
-    height: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-}
-
-.adventure-btns {
-    border: 1px solid;
-    border-radius: 10px;
-    height: 60px;
-    width: 260px;
-}
-
-.adventure-info-btns {
-    height: 25px;
-    width: 25px;
-    border: 1px solid;
-    border-radius: 50%;
-    position: relative;
-    bottom: 43px;
-    left: 100px;
-}
-
-#events {
-    border: 1px solid;
-    width: 55%;
-    padding: 30px;
-    height: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-}
-
-.events-btns {
-    border: 1px solid;
-    border-radius: 10px;
-    height: 60px;
-    width: 260px;
-}
-
-.events-info-btns {
-    height: 25px;
-    width: 25px;
-    border: 1px solid;
-    border-radius: 50%;
-    position: relative;
-    bottom: 43px;
-    left: 100px;
 }

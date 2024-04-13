@@ -1,18 +1,24 @@
 const mainLeftBox = document.getElementById('main-left-side');
 const profileLeftBox = document.getElementById('profile-left-side');
 const rightBox = document.getElementById('box-right-side');
-const trainingBox = document.getElementById('training');
+const trainBox = document.getElementById('train');
 const jobBox = document.getElementById("jobs");
 const cityBox = document.getElementById("city");
 const socialBox = document.getElementById("social");
 const adventureBox = document.getElementById("adventure");
 const eventsBox = document.getElementById("events");
 
+const tavern = document.getElementById('city-tavern');
+const church = document.getElementById('city-church');
+const shop = document.getElementById('city-shop');
+const smith = document.getElementById('city-smith');
+
 const goBack = document.getElementById('go-back');
 const trainGoBack = document.getElementById('train-go-back');
 
 const leftBackBtns = document.getElementsByClassName('left-go-back');
 const rightBackBtns = document.getElementsByClassName('right-go-back');
+const cityBackBtns = document.getElementsByClassName('right-city-back');
 
 const morning = document.getElementById('morning');
 const evening = document.getElementById('evening');
@@ -71,7 +77,7 @@ profileBtn.addEventListener('click', () => {
 
 mainBtns[0].addEventListener('click', () => {
     rightBox.style.display = 'none';
-    trainingBox.style.display = 'flex';
+    trainBox.style.display = 'flex';
     cityBox.style.display = 'none';
     jobBox.style.display = 'none';
     socialBox.style.display = 'none';
@@ -81,7 +87,7 @@ mainBtns[0].addEventListener('click', () => {
 
 mainBtns[2].addEventListener('click', () => {
     rightBox.style.display = 'none';
-    trainingBox.style.display = 'none';
+    trainBox.style.display = 'none';
     jobBox.style.display = 'grid';
     cityBox.style.display = 'none';
     socialBox.style.display = 'none';
@@ -91,7 +97,7 @@ mainBtns[2].addEventListener('click', () => {
 
 mainBtns[4].addEventListener('click', () => {
     rightBox.style.display = 'none';
-    trainingBox.style.display = 'none';
+    trainBox.style.display = 'none';
     jobBox.style.display = 'none';
     cityBox.style.display = 'grid';
     socialBox.style.display = 'none';
@@ -101,7 +107,7 @@ mainBtns[4].addEventListener('click', () => {
 
 mainBtns[5].addEventListener('click', () => {
     rightBox.style.display = 'none';
-    trainingBox.style.display = 'none';
+    trainBox.style.display = 'none';
     jobBox.style.display = 'none';
     cityBox.style.display = 'none';
     socialBox.style.display = 'grid';
@@ -111,7 +117,7 @@ mainBtns[5].addEventListener('click', () => {
 
 mainBtns[6].addEventListener('click', () => {
     rightBox.style.display = 'none';
-    trainingBox.style.display = 'none';
+    trainBox.style.display = 'none';
     jobBox.style.display = 'none';
     cityBox.style.display = 'none';
     socialBox.style.display = 'none';
@@ -121,7 +127,7 @@ mainBtns[6].addEventListener('click', () => {
 
 mainBtns[7].addEventListener('click', () => {
     rightBox.style.display = 'none';
-    trainingBox.style.display = 'none';
+    trainBox.style.display = 'none';
     jobBox.style.display = 'none';
     cityBox.style.display = 'none';
     socialBox.style.display = 'none';
@@ -136,7 +142,7 @@ function leftMainMenu() {
 
 function rightMainMenu() {
     rightBox.style.display = 'grid';
-    trainingBox.style.display = 'none';
+    trainBox.style.display = 'none';
     jobBox.style.display = 'none';
     cityBox.style.display = 'none';
     socialBox.style.display = 'none';
@@ -173,8 +179,31 @@ for (let i = 0; i < infoTrainBtns.length; i++) {
 }
 
 const cityBtns = document.getElementsByClassName('city-btns');
-for (let i = 0; i < cityBtns.length; i++) {
-    cityBtns[i].onclick = btnfunciona;
+cityBtns[0].addEventListener('click', () => {
+    cityBox.style.display = 'none';
+    tavern.style.display = 'flex';
+});
+cityBtns[1].addEventListener('click', () => {
+    cityBox.style.display = 'none';
+    church.style.display = 'grid';
+});
+cityBtns[2].addEventListener('click', () => {
+    cityBox.style.display = 'none';
+    shop.style.display = 'grid';
+});
+cityBtns[3].addEventListener('click', () => {
+    cityBox.style.display = 'none';
+    smith.style.display = 'grid';
+});
+
+for (let i = 0; i < cityBackBtns.length; i++) {
+    cityBackBtns[i].addEventListener('click', () => {
+        cityBox.style.display = 'grid';
+        tavern.style.display = 'none';
+        church.style.display = 'none';
+        shop.style.display = 'none';
+        smith.style.display = 'none';
+    });
 }
 
 const socialInfoBtns = document.getElementsByClassName('social-info-btns');
