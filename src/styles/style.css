@@ -206,14 +206,14 @@ body {
     height: fit-content;
 }
 
-.jobs-btns, .social-btns, .city-book-btns, .city-shop-btns, .city-smith-btns {
+.jobs-btns, .social-btns, .city-book-btns, .city-smith-btns {
     border: 1px solid;
     border-radius: 10px;
     height: 60px;
     width: 260px;
 }
 
-.jobs-info-btns, .social-info-btns,  .book-info-btns, .shop-info-btns, .smith-info-btns,
+.jobs-info-btns, .social-info-btns,  .book-info-btns, .smith-info-btns,
 .train-info-btns, .adventure-info-btns, .events-info-btns, .tavern-info-btns {
     height: 25px;
     width: 25px;
@@ -241,3 +241,52 @@ body {
     height: 100px;
     width: 130px;
 }
+
+.shop-card {
+    border: 1px solid;
+    padding: 0 10px;
+    margin: 15px 0;
+    height: 60px;
+    width: 260px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-img {
+    height: 30px;
+    width: 30px;
+}
+
+.item-desc {
+    height: 100%;
+}
+
+.item-name {
+    margin: 6px 0 8px 0;
+}
+
+.item-values {
+    display: flex;
+    justify-content: space-around;
+}
+
+.item-fame img, .item-price img {
+    height: 20px;
+    width: 20px;
+}
+
+.item-fame, .item-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-buy {
+    position: relative;
+    left: 10px;
+    margin-left: -20px;
+    height: 100%;
+    width: 50px;
+}
+
