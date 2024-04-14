@@ -16,8 +16,8 @@
             </section>
             <section id="box-calendar">
                 <div id="day">1</div>/
-                <div id="month">janeiro</div>/
-                <div id="year">1402</div>
+                <div id="month">primus</div>/
+                <div id="year">1103</div>
             </section>
             <section id="box-turn">
                 <div class="turn"><img id="morning" class="turn-icon" src="./src/images/morning.png" alt="morning"></div>
@@ -36,31 +36,42 @@
                         <div id="gold">100 <img src="./src/images/icon011.png" alt=""></div>
                     </div>
                     <div id="box-left-btns">
-                        <button id="profile" class="left-btns">Perfil</button>
-                        <button id="family" class="left-btns">Familia</button>
-                        <button id="friend" class="left-btns">Amigos</button>
+                        <button id="profile-btn" class="left-btns">Perfil</button>
+                        <button id="relation-btn" class="left-btns">Relacionamentos</button>
+                        <button id="inventory-btn" class="left-btns">Inventario</button>
                     </div>
                 </section>
-                <section id="profile-left-side">
+                <section id="profile">
                     <div id="box-name">Nome do heroi</div>
                     <div id="box-stats">
-                        <div id="force">10</div>
-                        <div id="fame">10</div>
-                        <div id="gold">100g</div>
+                        <div id="force">10 <img src="./src/images/icon179.png" alt="force"></div>
+                        <div id="fame">10 <img src="./src/images/icon833.png" alt=""></div>
+                        <div id="gold">100 <img src="./src/images/icon011.png" alt=""></div>
                     </div>
-                    <div id="inventario">
-                        <div class="box-inv">espada</div>
-                        <div class="box-inv">escudo</div>
-                        <div class="box-inv">armadura</div>
-                        <div class="box-inv">Elmo</div>
+                    <div id="sword-level">Level na espada</div>
+                    <div id="sword-xp">0/100</div>
+                    <div id="leader-level">level em taticas</div>
+                    <div id="leader-xp">0/100</div>
+                    <h4 class="feats">Contratos finalizados: 0</h4>
+                    <h4 class="feats">Torneios ganhos(duelos): 0</h4>
+                    <h4 class="feats">Torneios ganhos(justas): 0</h4>
+                    <h4 class="feats">Aventuras concluidas: 0</h4>
+                    <button id="profile-go-back" class="left-go-back">Voltar</button>
+                </section>
+                <section id="relation">
+                    
+                    <button id="relation-go-back" class="left-go-back">Voltar</button>
+                </section>
+                <section id="inventory">
+                    <div id="item-box">
+                        <div class="item">espada</div>
+                        <div class="item">armadura</div>
+                        <div class="item">vestimentas</div>
+                        <div class="item">capa</div>
+                        <div class="item">lança</div>
+                        <div class="item">cavalo</div>
                     </div>
-                    <div id="stats-txt">
-                        <h4>Duelos ganhos: 0</h4>
-                        <h4>Torneios ganhos: 0</h4>
-                        <h4>Missoes completas: 0</h4>
-                        <h4>Aventuras completas: 0</h4>
-                    </div>
-                    <button id="stats-go-back" class="left-go-back">Voltar</button>
+                    <button id="inventory-go-back" class="left-go-back">Voltar</button>
                 </section>
             </section>
             <section id="box-right-side">
@@ -74,8 +85,9 @@
                 <button class="main-btns">Eventos</button>
             </section>
             <section id="train">
-                <button class="train-btns">Treinar sozinho</button><button class="train-info-btns">i</button>
-                <button class="train-btns">Treinar bando</button><button class="train-info-btns">i</button>
+                <button class="train-btns">Treinar espada</button><button class="train-info-btns">i</button>
+                <button class="train-btns">Ler sobre Esgrima</button><button class="train-info-btns">i</button>
+                <button class="train-btns">Ler sobre Taticas</button><button class="train-info-btns">i</button>
                 <button id="train-go-back" class="right-go-back">Voltar</button>
             </section>
             <section id="jobs">
@@ -89,7 +101,7 @@
             </section>
             <section id="city">
                 <button class="city-btns">Ir a taverna</button>
-                <button class="city-btns">Ir a igreja</button>
+                <button class="city-btns">Ir a biblioteca</button>
                 <button class="city-btns">Visitar a Loja</button>
                 <button class="city-btns">Visitar o ferreiro</button>
                 <button id="city-go-back" class="right-go-back">Voltar</button>
@@ -100,15 +112,14 @@
                 <button class="city-tavern-btns">Pagar por informações</button><button class="tavern-info-btns">i</button>
                 <button id="tavern-go-back" class="right-city-back">Voltar</button>
             </section>
-            <section id="city-church">
-                <button class="city-church-btns">Pagar por informações</button><button class="church-info-btns">i</button>
-                <button class="city-church-btns">Comprar Livro 1</button><button class="church-info-btns">i</button>
-                <button class="city-church-btns">Comprar Livro 2</button><button class="church-info-btns">i</button>
-                <button class="city-church-btns">Comprar Livro 3</button><button class="church-info-btns">i</button>
-                <button class="city-church-btns">Comprar Livro 4</button><button class="church-info-btns">i</button>
-                <button class="city-church-btns">Comprar Livro 5</button><button class="church-info-btns">i</button>
-                <button class="city-church-btns">Comprar Livro 6</button><button class="church-info-btns">i</button>
-                <button id="church-go-back" class="right-city-back">Voltar</button>
+            <section id="city-book">
+                <button class="city-book-btns">Comprar Livro 1</button><button class="book-info-btns">i</button>
+                <button class="city-book-btns">Comprar Livro 2</button><button class="book-info-btns">i</button>
+                <button class="city-book-btns">Comprar Livro 3</button><button class="book-info-btns">i</button>
+                <button class="city-book-btns">Comprar Livro 4</button><button class="book-info-btns">i</button>
+                <button class="city-book-btns">Comprar Livro 5</button><button class="book-info-btns">i</button>
+                <button class="city-book-btns">Comprar Livro 6</button><button class="book-info-btns">i</button>
+                <button id="book-go-back" class="right-city-back">Voltar</button>
             </section>
             <section id="city-shop">
                 <button class="city-shop-btns">Comprar vestimenta 1</button><button class="shop-info-btns">i</button>
@@ -133,8 +144,7 @@
             </section>
             <section id="social">
                 <button class="social-btns">Conversar na taverna</button><button class="social-info-btns">i</button>
-                <button class="social-btns">Convervar no mercado</button><button class="social-info-btns">i</button>
-                <button class="social-btns">Convervar nas barracas</button><button class="social-info-btns">i</button>
+                <button class="social-btns">Conversar no mercado</button><button class="social-info-btns">i</button>
                 <button class="social-btns">Ir a uma festa</button><button class="social-info-btns">i</button>
                 <button class="social-btns">Ir a uma festa nobre</button><button class="social-info-btns">i</button>
                 <button id="social-go-back" class="right-go-back">Voltar</button>

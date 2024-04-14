@@ -1,5 +1,7 @@
 const mainLeftBox = document.getElementById('main-left-side');
-const profileLeftBox = document.getElementById('profile-left-side');
+const profileBox = document.getElementById('profile');
+const relationBox = document.getElementById('relation');
+const inventoryBox = document.getElementById('inventory');
 const rightBox = document.getElementById('box-right-side');
 const trainBox = document.getElementById('train');
 const jobBox = document.getElementById("jobs");
@@ -9,7 +11,7 @@ const adventureBox = document.getElementById("adventure");
 const eventsBox = document.getElementById("events");
 
 const tavern = document.getElementById('city-tavern');
-const church = document.getElementById('city-church');
+const bookshop = document.getElementById('city-book');
 const shop = document.getElementById('city-shop');
 const smith = document.getElementById('city-smith');
 
@@ -28,9 +30,9 @@ const dayTxt = document.getElementById('day');
 
 const mainBtns = document.getElementsByClassName('main-btns');
 
-const profileBtn = document.getElementById('profile');
-const familyBtn = document.getElementById('family');
-const friendBtn = document.getElementById('friend');
+const profileBtn = document.getElementById('profile-btn');
+const relationBtn = document.getElementById('relation-btn');
+const inventoryBtn = document.getElementById('inventory-btn');
 
 function btnfunciona() {
     alert('funciona');
@@ -71,13 +73,29 @@ night.addEventListener('click', () => {
 });
 
 profileBtn.addEventListener('click', () => {
-    profileLeftBox.style.display = 'flex';
+    profileBox.style.display = 'flex';
     mainLeftBox.style.display = 'none';
+    relationBox.style.display = 'none';
+    inventoryBox.style.display = 'none';
+});
+
+relationBtn.addEventListener('click', () => {
+    profileBox.style.display = 'none';
+    mainLeftBox.style.display = 'none';
+    relationBox.style.display = 'flex';
+    inventoryBox.style.display = 'none';
+});
+
+inventoryBtn.addEventListener('click', () => {
+    profileBox.style.display = 'none';
+    mainLeftBox.style.display = 'none';
+    relationBox.style.display = 'none';
+    inventoryBox.style.display = 'flex';
 });
 
 mainBtns[0].addEventListener('click', () => {
     rightBox.style.display = 'none';
-    trainBox.style.display = 'flex';
+    trainBox.style.display = 'grid';
     cityBox.style.display = 'none';
     jobBox.style.display = 'none';
     socialBox.style.display = 'none';
@@ -121,7 +139,7 @@ mainBtns[6].addEventListener('click', () => {
     jobBox.style.display = 'none';
     cityBox.style.display = 'none';
     socialBox.style.display = 'none';
-    adventureBox.style.display = 'flex';
+    adventureBox.style.display = 'grid';
     eventsBox.style.display = 'none';
 });
 
@@ -132,11 +150,13 @@ mainBtns[7].addEventListener('click', () => {
     cityBox.style.display = 'none';
     socialBox.style.display = 'none';
     adventureBox.style.display = 'none';
-    eventsBox.style.display = 'flex';
+    eventsBox.style.display = 'grid';
 });
 
 function leftMainMenu() {
-    profileLeftBox.style.display = 'none';
+    profileBox.style.display = 'none';
+    relationBox.style.display = 'none';
+    inventoryBox.style.display = 'none';
     mainLeftBox.style.display = 'flex';
 }
 
@@ -181,11 +201,11 @@ for (let i = 0; i < infoTrainBtns.length; i++) {
 const cityBtns = document.getElementsByClassName('city-btns');
 cityBtns[0].addEventListener('click', () => {
     cityBox.style.display = 'none';
-    tavern.style.display = 'flex';
+    tavern.style.display = 'grid';
 });
 cityBtns[1].addEventListener('click', () => {
     cityBox.style.display = 'none';
-    church.style.display = 'grid';
+    bookshop.style.display = 'grid';
 });
 cityBtns[2].addEventListener('click', () => {
     cityBox.style.display = 'none';
@@ -200,7 +220,7 @@ for (let i = 0; i < cityBackBtns.length; i++) {
     cityBackBtns[i].addEventListener('click', () => {
         cityBox.style.display = 'grid';
         tavern.style.display = 'none';
-        church.style.display = 'none';
+        bookshop.style.display = 'none';
         shop.style.display = 'none';
         smith.style.display = 'none';
     });
