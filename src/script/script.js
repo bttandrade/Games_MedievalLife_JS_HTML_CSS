@@ -34,6 +34,80 @@ const profileBtn = document.getElementById('profile-btn');
 const relationBtn = document.getElementById('relation-btn');
 const inventoryBtn = document.getElementById('inventory-btn');
 
+const buyShopItens = document.getElementsByClassName('city-shop-buy');
+const buyBookItens = document.getElementsByClassName('book-shop-buy');
+const buySmithItens = document.getElementsByClassName('smith-shop-buy');
+
+const inventoryItens = document.getElementsByClassName('inv-item');
+const invSword = inventoryItens[0];
+const invArmor = inventoryItens[1];
+const invVest = inventoryItens[2];
+const invCape = inventoryItens[3];
+const invSpear = inventoryItens[4];
+const invHorse = inventoryItens[5];
+
+const heroStats = {
+    force: 10,
+    fame: 50,
+    gold: 1000,
+}
+
+const heroForceTxt = document.getElementById('force-value');
+const heroFameTxt = document.getElementById('fame-value');
+const heroGoldTxt = document.getElementById('gold-value');
+
+function updateHeroStats() {
+    heroForceTxt.innerText = heroStats.force;
+    heroFameTxt.innerText = heroStats.fame;
+    heroGoldTxt.innerText = heroStats.gold;
+}
+
+updateHeroStats();
+
+const heroInventory = [
+    atualSword = {
+        swordIcon: '../images/espada3.png',
+        swordName: 'Espada',
+        swordFame: 0
+    },
+    atualArmor = {
+        armorIcon: '../images/roupa.png',
+        armorName: 'Roupa de Plebeu',
+        armorFame: 0,
+    },
+]
+
+function addToInventory(item, icon, name, fame) {
+    inventoryItens[item].innerHTML = `
+        <img src="./src/images/${icon}.png" alt="icon">
+        <div class="inv-item-desc">${name}</div>
+        <div class="inv-item-fame">
+            <h4 class="inv-item-fame-value">${fame}</h4>
+            <img src="./src/images/fame.png" alt="icon">
+        </div>
+    `;
+}
+
+//addToInventory(0, 'espada1', 'Espada I', 50);
+//addToInventory(1, 'roupa', 'Roupa de Plebeu', 0);
+
+//buyShopItens[0].onclick = addToInventory(0, 'espada1', 'Espada I', 50);
+
+
+function tryToBuy(value, place, icon, name, fame) {
+    if (heroStats.gold >= value) {
+        addToInventory(place, icon, name, fame);
+        heroStats.gold -= value;
+        updateHeroStats();
+    } else {
+        alert('ouro insuficinete');
+    }
+}
+
+buyShopItens[0].addEventListener("click", () => {
+    tryToBuy(100, 1, 'roupa1', 'Roupa de Plebeu A', 50);
+});
+
 function btnfunciona() {
     alert('funciona');
 }

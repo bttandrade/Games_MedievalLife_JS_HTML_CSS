@@ -31,9 +31,9 @@
                     <div id="hero-pic"></div>
                     <div id="box-name">Nome do heroi</div>
                     <div id="box-stats">
-                        <div id="force">10 <img src="./src/images/espada3.png" alt="force"></div>
-                        <div id="fame">10 <img src="./src/images/fame.png" alt=""></div>
-                        <div id="gold">100 <img src="./src/images/ouro.png" alt=""></div>
+                        <div id="force"><div id="force-value">10</div><img src="./src/images/espada3.png" alt="force"></div>
+                        <div id="fame"><div id="fame-value">10</div><img src="./src/images/fame.png" alt=""></div>
+                        <div id="gold"><div id="gold-value">10</div><img src="./src/images/ouro.png" alt=""></div>
                     </div>
                     <div id="box-left-btns">
                         <button id="profile-btn" class="left-btns">Perfil</button>
@@ -64,12 +64,19 @@
                 </section>
                 <section id="inventory">
                     <div id="item-box">
-                        <div class="item">espada</div>
-                        <div class="item">armadura</div>
-                        <div class="item">vestimentas</div>
-                        <div class="item">capa</div>
-                        <div class="item">lança</div>
-                        <div class="item">cavalo</div>
+                        <div class="inv-item">Espada</div>
+                        <div class="inv-item">
+                            <img src="./src/images/espada1.png" alt="icon">
+                            <div class="inv-item-desc">Roupa de Plebeu</div>
+                            <div class="inv-item-fame">
+                                <h4 class="inv-item-fame-value">0</h4>
+                                <img src="./src/images/fame.png" alt="icon">
+                            </div>
+                        </div>
+                        <div class="inv-item">vestimentas</div>
+                        <div class="inv-item">capa</div>
+                        <div class="inv-item">lança</div>
+                        <div class="inv-item">cavalo</div>
                     </div>
                     <button id="inventory-go-back" class="left-go-back">Voltar</button>
                 </section>
@@ -112,6 +119,8 @@
                 <button class="city-tavern-btns">Pagar por informações</button><button class="tavern-info-btns">i</button>
                 <button id="tavern-go-back" class="right-city-back">Voltar</button>
             </section>
+
+
             <section id="city-book">
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/livro1.png" alt="icon"></div>
@@ -128,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="book-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/livro2.png" alt="icon"></div>
@@ -145,7 +154,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="book-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/livro3.png" alt="icon"></div>
@@ -162,7 +171,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="book-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/livro4.png" alt="icon"></div>
@@ -179,7 +188,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="book-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/livro5.png" alt="icon"></div>
@@ -196,7 +205,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="book-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/livro6.png" alt="icon"></div>
@@ -213,10 +222,12 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="book-shop-buy">C</button>
                 </div>
                 <button id="book-go-back" class="right-city-back">Voltar</button>
             </section>
+
+
             <section id="city-shop">
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/roupa1.png" alt="icon"></div>
@@ -233,7 +244,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="city-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/roupa2.png" alt="icon"></div>
@@ -250,24 +261,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/roupa3.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Roupa de Plebeu C</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>300</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>300</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="shop-buy">C</button>
+                    <button class="city-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/capa1.png" alt="icon"></div>
@@ -284,24 +278,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/capa2.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Capa Plebeu B</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>500</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>500</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="shop-buy">C</button>
+                    <button class="city-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/cavalo1.png" alt="icon"></div>
@@ -318,7 +295,41 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="city-shop-buy">C</button>
+                </div>
+                <div class="shop-card">
+                    <div class="item-img"><img src="./src/images/roupa3.png" alt="icon"></div>
+                    <div class="item-desc">
+                        <h4 class="item-name">Roupa de Plebeu C</h4>
+                        <div class="item-values">
+                            <div class="item-fame">
+                                <h4>300</h4>
+                                <img src="./src/images/fame.png" alt="icon">
+                            </div>
+                            <div class="item-price">
+                                <h4>300</h4>
+                                <img src="./src/images/ouro.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="city-shop-buy">C</button>
+                </div>
+                <div class="shop-card">
+                    <div class="item-img"><img src="./src/images/capa2.png" alt="icon"></div>
+                    <div class="item-desc">
+                        <h4 class="item-name">Capa Plebeu B</h4>
+                        <div class="item-values">
+                            <div class="item-fame">
+                                <h4>500</h4>
+                                <img src="./src/images/fame.png" alt="icon">
+                            </div>
+                            <div class="item-price">
+                                <h4>500</h4>
+                                <img src="./src/images/ouro.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="city-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/roupa4.png" alt="icon"></div>
@@ -335,24 +346,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/roupa5.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Roupa de Nobre B</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>500</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>500</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="shop-buy">C</button>
+                    <button class="city-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/capa3.png" alt="icon"></div>
@@ -369,24 +363,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/capa4.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Capa Nobre B</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>2500</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>2500</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="shop-buy">C</button>
+                    <button class="city-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/cavalo2.png" alt="icon"></div>
@@ -403,7 +380,41 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="city-shop-buy">C</button>
+                </div>
+                <div class="shop-card">
+                    <div class="item-img"><img src="./src/images/roupa5.png" alt="icon"></div>
+                    <div class="item-desc">
+                        <h4 class="item-name">Roupa de Nobre B</h4>
+                        <div class="item-values">
+                            <div class="item-fame">
+                                <h4>500</h4>
+                                <img src="./src/images/fame.png" alt="icon">
+                            </div>
+                            <div class="item-price">
+                                <h4>500</h4>
+                                <img src="./src/images/ouro.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="city-shop-buy">C</button>
+                </div>
+                <div class="shop-card">
+                    <div class="item-img"><img src="./src/images/capa4.png" alt="icon"></div>
+                    <div class="item-desc">
+                        <h4 class="item-name">Capa Nobre B</h4>
+                        <div class="item-values">
+                            <div class="item-fame">
+                                <h4>2500</h4>
+                                <img src="./src/images/fame.png" alt="icon">
+                            </div>
+                            <div class="item-price">
+                                <h4>2500</h4>
+                                <img src="./src/images/ouro.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="city-shop-buy">C</button>
                 </div>
                 <button id="shop-go-back" class="right-city-back">Voltar</button>
             </section>
@@ -425,7 +436,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smismith-th-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/armor1.png" alt="icon"></div>
@@ -442,7 +453,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/espada2.png" alt="icon"></div>
@@ -459,7 +470,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/armor2.png" alt="icon"></div>
@@ -476,7 +487,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/lanca1.png" alt="icon"></div>
@@ -493,7 +504,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/espada3.png" alt="icon"></div>
@@ -510,7 +521,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/armor3.png" alt="icon"></div>
@@ -527,7 +538,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/espada4.png" alt="icon"></div>
@@ -544,7 +555,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/armor4.png" alt="icon"></div>
@@ -561,7 +572,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/lanca2.png" alt="icon"></div>
@@ -578,7 +589,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/espada5.png" alt="icon"></div>
@@ -595,7 +606,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <div class="shop-card">
                     <div class="item-img"><img src="./src/images/armor5.png" alt="icon"></div>
@@ -612,10 +623,12 @@
                             </div>
                         </div>
                     </div>
-                    <button class="shop-buy">C</button>
+                    <button class="smith-shop-buy">C</button>
                 </div>
                 <button id="smith-go-back" class="right-city-back">Voltar</button>
             </section>
+
+
             <section id="social">
                 <button class="social-btns">Conversar na taverna</button><button class="social-info-btns">i</button>
                 <button class="social-btns">Conversar no mercado</button><button class="social-info-btns">i</button>
