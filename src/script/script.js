@@ -34,10 +34,6 @@ const profileBtn = document.getElementById('profile-btn');
 const relationBtn = document.getElementById('relation-btn');
 const inventoryBtn = document.getElementById('inventory-btn');
 
-const buyShopItens = document.getElementsByClassName('city-shop-buy');
-const buyBookItens = document.getElementsByClassName('book-shop-buy');
-const buySmithItens = document.getElementsByClassName('smith-shop-buy');
-
 const inventoryItens = document.getElementsByClassName('inv-item');
 const invSword = inventoryItens[0];
 const invArmor = inventoryItens[1];
@@ -77,9 +73,9 @@ const heroInventory = [
     },
 ]
 
-function addToInventory(item, icon, name, fame) {
+function moveToInventory(item, icon, name, fame) {
     inventoryItens[item].innerHTML = `
-        <img src="./src/images/${icon}.png" alt="icon">
+        <img src="${icon}" alt="icon">
         <div class="inv-item-desc">${name}</div>
         <div class="inv-item-fame">
             <h4 class="inv-item-fame-value">${fame}</h4>
@@ -93,10 +89,17 @@ function addToInventory(item, icon, name, fame) {
 
 //buyShopItens[0].onclick = addToInventory(0, 'espada1', 'Espada I', 50);
 
+const buySword = document.getElementsByClassName('sword-buy');
+const buyArmor = document.getElementsByClassName('armor-buy');
+const buySpear = document.getElementsByClassName('spear-buy');
+const buyVest = document.getElementsByClassName('vest-buy');
+const buyCape = document.getElementsByClassName('cape-buy');
+const buyHorse = document.getElementsByClassName('horse-buy');
+const buyBook = document.getElementsByClassName('book-buy');
 
 function tryToBuy(value, place, icon, name, fame) {
     if (heroStats.gold >= value) {
-        addToInventory(place, icon, name, fame);
+        moveToInventory(place, icon, name, fame);
         heroStats.gold -= value;
         updateHeroStats();
     } else {
@@ -104,9 +107,35 @@ function tryToBuy(value, place, icon, name, fame) {
     }
 }
 
-buyShopItens[0].addEventListener("click", () => {
-    tryToBuy(100, 1, 'roupa1', 'Roupa de Plebeu A', 50);
-});
+function getAItem(event) {
+    const item = event.target.parentNode;
+    const itemName = item.querySelector('.item-desc h4').innerText;
+    const itemIcon = item.querySelector('.item-img img').src;
+    const itemFame = item.querySelector('.item-fame h4').innerText;
+    const itemPrice = item.querySelector('.item-price h4').innerText;
+    const itemPlace = item.querySelector('.place-inventory').innerText;
+
+    tryToBuy(itemPrice, itemPlace, itemIcon, itemName, itemFame);
+}
+
+for (let i = 0; i < buySword.length; i++) {
+    buySword[i].addEventListener("click", getAItem);
+}
+for (let i = 0; i < buyArmor.length; i++) {
+    buyArmor[i].addEventListener("click", getAItem);
+}
+for (let i = 0; i < buyVest.length; i++) {
+    buyVest[i].addEventListener("click", getAItem);
+}
+for (let i = 0; i < buyCape.length; i++) {
+    buyCape[i].addEventListener("click", getAItem);
+}
+for (let i = 0; i < buySpear.length; i++) {
+    buySpear[i].addEventListener("click", getAItem);
+}
+for (let i = 0; i < buyHorse.length; i++) {
+    buyHorse[i].addEventListener("click", getAItem);
+}
 
 function btnfunciona() {
     alert('funciona');

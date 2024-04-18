@@ -296,7 +296,8 @@ body {
     align-items: center;
 }
 
-.smith-shop-buy, .book-shop-buy, .city-shop-buy {
+.sword-buy, .armor-buy, .spear-buy, .book-buy,
+.vest-buy, .cape-buy, .horse-buy {
     position: relative;
     left: 10px;
     margin-left: -20px;
@@ -304,3 +305,6 @@ body {
     width: 50px;
 }
 
+.place-inventory {
+    display: none;
+}
