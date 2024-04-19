@@ -73,6 +73,55 @@ const heroInventory = [
     },
 ]
 
+function createItemShop(where, icon, name, fame, price, place) {
+    let itemShop = document.createElement('div');
+    itemShop.classList.add('shop-card');
+    itemShop.innerHTML = `
+        <div class="item-img"><img src="./src/images/${icon}.png" alt="icon"></div>
+        <div class="item-desc">
+            <h4 class="item-name">${name}</h4>
+            <div class="item-values">
+                <div class="item-fame">
+                    <h4>${fame}</h4>
+                    <img src="./src/images/fame.png" alt="icon">
+                </div>
+                <div class="item-price">
+                    <h4>${price}</h4>
+                    <img src="./src/images/ouro.png" alt="icon">
+                </div>
+            </div>
+        </div>
+        <div class="place-inventory">${place}</div>
+        <button class="vest-buy">C</button>
+    `
+    where.appendChild(itemShop);
+}
+
+createItemShop(shop, "roupa1", "Roupa de Plebeu A", 100, 100, 2);
+createItemShop(shop, "roupa2", "Roupa de Plebeu B", 200, 200, 2);
+createItemShop(shop, "capa1", "Capa de Plebeu A", 300, 300, 3);
+createItemShop(shop, "cavalo1", "Cavalo A", 400, 400, 5);
+createItemShop(shop, "roupa3", "Roupa de Plebeu C", 500, 500, 2);
+createItemShop(shop, "capa2", "Capa de Plebeu B", 600, 600, 3);
+createItemShop(shop, "roupa4", "Roupa de Nobre A", 700, 700, 2);
+createItemShop(shop, "capa3", "Capa de Nobre A", 800, 800, 3);
+createItemShop(shop, "cavalo2", "Cavalo B", 900, 900, 5);
+createItemShop(shop, "roupa5", "Roupa de Nobre B", 1000, 1000, 2);
+createItemShop(shop, "capa4", "Capa de Nobre B", 1100, 1100, 3);
+
+createItemShop(smith, "espada1", "Espada A", 100, 100, 0);
+createItemShop(smith, "armor1", "Armadura A", 200, 200, 1);
+createItemShop(smith, "espada2", "Espada B", 300, 300, 0);
+createItemShop(smith, "armor2", "Armadura B", 400, 400, 1);
+createItemShop(smith, "lanca1", "Lança A", 500, 500, 4);
+createItemShop(smith, "espada3", "Espada C", 600, 600, 0);
+createItemShop(smith, "armor3", "Armadura C", 700, 700, 1);
+createItemShop(smith, "espada4", "Espada D", 800, 800, 0);
+createItemShop(smith, "armor4", "Armadura D", 900, 900, 1);
+createItemShop(smith, "lanca2", "Lança B", 1000, 1000, 4);
+createItemShop(smith, "espada5", "Espada E", 1100, 1100, 0);
+createItemShop(smith, "armor5", "Armadura E", 1200, 1200, 1);
+
 function moveToInventory(item, icon, name, fame) {
     inventoryItens[item].innerHTML = `
         <img src="${icon}" alt="icon">
