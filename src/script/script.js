@@ -26,13 +26,14 @@ const morning = document.getElementById('morning');
 const evening = document.getElementById('evening');
 const night = document.getElementById('night');
 
-const dayTxt = document.getElementById('day');
-
 const mainBtns = document.getElementsByClassName('main-btns');
 
 const profileBtn = document.getElementById('profile-btn');
 const relationBtn = document.getElementById('relation-btn');
 const inventoryBtn = document.getElementById('inventory-btn');
+
+const currentSwordLevelTxt = document.getElementById('current-sword-level');
+const currentTacticLevelTxt = document.getElementById('current-tactic-level');
 
 const inventoryItens = document.getElementsByClassName('inv-item');
 const invSword = inventoryItens[0];
@@ -43,35 +44,60 @@ const invSpear = inventoryItens[4];
 const invHorse = inventoryItens[5];
 
 const heroStats = {
-    force: 10,
-    fame: 50,
+    force: 1,
+    fame: 0,
     gold: 1000,
+    swordLevel: 1,
+    tacticLevel: 0,
+    swordBook: 1,
+    leaderBook: 1,
+    storyBook1: false,
+    storyBook2: false,
 }
 
 const heroForceTxt = document.getElementById('force-value');
 const heroFameTxt = document.getElementById('fame-value');
 const heroGoldTxt = document.getElementById('gold-value');
+const heroForceTxt2 = document.getElementById('force2-value');
+const heroFameTxt2 = document.getElementById('fame2-value');
+const heroGoldTxt2 = document.getElementById('gold2-value');
 
-function updateHeroStats() {
+const currentXpSwordTxt = document.getElementById('current-xp-sword');
+const currentXpLeaderTxt = document.getElementById('current-xp-leader');
+
+const contractNumberTxt = document.getElementById('contract-values');
+const duelNumbersTxt = document.getElementById('duel-values');
+const JustsNumbersTxt = document.getElementById('justs-values');
+const adventureNumbersTxt = document.getElementById('adventures-values');
+
+
+const profileStats = {
+    currentXp: 0,
+    currentTactic: 0,
+    contractNumber: 0,
+    duelNumbers: 0,
+    JustsNumbers: 0,
+    adventureNumbers: 0,
+}
+
+function updateHeroProfile() {
     heroForceTxt.innerText = heroStats.force;
     heroFameTxt.innerText = heroStats.fame;
     heroGoldTxt.innerText = heroStats.gold;
+    heroForceTxt2.innerText = heroStats.force;
+    heroFameTxt2.innerText = heroStats.fame;
+    heroGoldTxt2.innerText = heroStats.gold;
+    currentSwordLevelTxt.innerText = heroStats.swordLevel;
+    currentTacticLevelTxt.innerText = heroStats.tacticLevel;
+    currentXpSwordTxt.innerText = profileStats.currentXp,
+    currentXpLeaderTxt.innerText = profileStats.currentTactic;
+    contractNumberTxt.innerText = profileStats.contractNumber;
+    duelNumbersTxt.innerText = profileStats.duelNumbers;
+    JustsNumbersTxt.innerText = profileStats.JustsNumbers;
+    adventureNumbersTxt.innerText = profileStats.adventureNumbers;
 }
 
-updateHeroStats();
-
-const heroInventory = [
-    atualSword = {
-        swordIcon: '../images/espada3.png',
-        swordName: 'Espada',
-        swordFame: 0
-    },
-    atualArmor = {
-        armorIcon: '../images/roupa.png',
-        armorName: 'Roupa de Plebeu',
-        armorFame: 0,
-    },
-]
+updateHeroProfile();
 
 function createItemShop(where, icon, name, fame, price, place) {
     let itemShop = document.createElement('div');
@@ -96,6 +122,13 @@ function createItemShop(where, icon, name, fame, price, place) {
     `
     where.appendChild(itemShop);
 }
+
+createItemShop(bookshop, "livro1", "Esgrima I", 100, 100, 10);
+createItemShop(bookshop, "livro2", "Liderança I", 100, 100, 10);
+createItemShop(bookshop, "livro3", "Esgrima II", 100, 100, 10);
+createItemShop(bookshop, "livro4", "Liderança II", 100, 100, 10);
+createItemShop(bookshop, "livro5", "x x x", 100, 100, 10);
+createItemShop(bookshop, "livro6", "y y y", 100, 100, 10);
 
 createItemShop(shop, "roupa1", "Roupa de Plebeu A", 100, 100, 2);
 createItemShop(shop, "roupa2", "Roupa de Plebeu B", 200, 200, 2);
@@ -133,11 +166,6 @@ function moveToInventory(item, icon, name, fame) {
     `;
 }
 
-//addToInventory(0, 'espada1', 'Espada I', 50);
-//addToInventory(1, 'roupa', 'Roupa de Plebeu', 0);
-
-//buyShopItens[0].onclick = addToInventory(0, 'espada1', 'Espada I', 50);
-
 const buySword = document.getElementsByClassName('sword-buy');
 const buyArmor = document.getElementsByClassName('armor-buy');
 const buySpear = document.getElementsByClassName('spear-buy');
@@ -150,9 +178,39 @@ function tryToBuy(value, place, icon, name, fame) {
     if (heroStats.gold >= value) {
         moveToInventory(place, icon, name, fame);
         heroStats.gold -= value;
-        updateHeroStats();
+        updateHeroProfile();
     } else {
         alert('ouro insuficinete');
+    }
+}
+
+function tryToBuyBook(value, book, name) {
+    if (heroStats.gold >= value) {
+        addBookToHero(book)
+        heroStats.gold -= value;
+        alert(`Livro ${name} comprado!`)
+        updateHeroProfile();
+        console.log(heroStats);
+    } else {
+        alert('ouro insuficinete');
+    }
+}
+
+function addBookToHero(book) {
+    if (book.includes('livro1')) {
+        trainBtns[1].disabled = false;
+        infoTrainBtns[1].disabled = false;
+    } else if (book.includes('livro2')) {
+        trainBtns[2].disabled = false;
+        infoTrainBtns[2].disabled = false;
+    } else if (book.includes('livro3')) {
+        heroStats.swordBook = 2;
+    } else if (book.includes('livro4')) {
+        heroStats.leaderBook = 2;
+    } else if (book.includes('livro5')) {
+        heroStats.storyBook1 = true;
+    } else if (book.includes('livro6')) {
+        heroStats.storyBook2 = true;
     }
 }
 
@@ -163,8 +221,11 @@ function getAItem(event) {
     const itemFame = item.querySelector('.item-fame h4').innerText;
     const itemPrice = item.querySelector('.item-price h4').innerText;
     const itemPlace = item.querySelector('.place-inventory').innerText;
-
-    tryToBuy(itemPrice, itemPlace, itemIcon, itemName, itemFame);
+    if (itemIcon.includes('livro')) {
+        tryToBuyBook(itemPrice, itemIcon, itemName)
+    } else {
+        tryToBuy(itemPrice, itemPlace, itemIcon, itemName, itemFame);
+    }
 }
 
 for (let i = 0; i < buySword.length; i++) {
@@ -185,6 +246,9 @@ for (let i = 0; i < buySpear.length; i++) {
 for (let i = 0; i < buyHorse.length; i++) {
     buyHorse[i].addEventListener("click", getAItem);
 }
+for (let i = 0; i < buyBook.length; i++) {
+    buyBook[i].addEventListener("click", getAItem);
+}
 
 function btnfunciona() {
     alert('funciona');
@@ -194,35 +258,94 @@ function btnfunciona2() {
     alert('funciona2');
 }
 
+const dayTxt = document.getElementById('day');
+const monthTxt = document.getElementById('month');
+const yearTxt = document.getElementById('year');
+const months = [
+    'Verão',
+    'Outono',
+    'Inverno',
+    'Primavera',
+];
+
+let currentMonth = 0;
+
 const time = {
     day: 1,
-    month: 'janeiro',
-    year: 1406,
+    month: months[currentMonth],
+    year: 1103,
 }
+
+updateTime();
 
 function updateTime() {
     dayTxt.innerText = time.day;
+    monthTxt.innerText = time.month;
+    yearTxt.innerText = time.year;
 }
 
-morning.addEventListener('click', () => {
+function advanceMonth() {
+    if (currentMonth == 3) {
+        currentMonth = 0;
+        time.month = months[currentMonth];
+        time.year++;
+    } else {
+        currentMonth++;
+        time.month = months[currentMonth];
+    }
+}
+
+function advanceDay(days) {
+    time.day += days;
+    if (time.day >= 28) {
+        time.day = 1;
+        advanceMonth();
+    }
+    updateTime();
+}
+
+function itsMorning() {
     morning.style.filter = "grayscale(0)";
     evening.style.filter = "grayscale(1)";
     night.style.filter = "grayscale(1)";
-    time.day++;
-    updateTime();
-});
+};
 
-evening.addEventListener('click', () => {
+function itsEvening() {
     morning.style.filter = "grayscale(1)";
     evening.style.filter = "grayscale(0)";
     night.style.filter = "grayscale(1)";
-});
+};
 
-night.addEventListener('click', () => {
+function itsNight() {
     morning.style.filter = "grayscale(1)";
     evening.style.filter = "grayscale(1)";
     night.style.filter = "grayscale(0)";
-});
+};
+
+let currentTurn = 0;
+
+const turns = [
+    itsMorning,
+    itsEvening,
+    itsNight,
+]
+
+function advanceTurn(times) {
+    let fullDaysPassed = 0;
+    fullDaysPassed = times / 3;
+    fullDaysPassed = Math.floor(fullDaysPassed);
+    advanceDay(fullDaysPassed);
+    if (times > 3) {
+        times = times % 3;
+    }
+    times > 3 ? times % 3 : times;
+    currentTurn += times;
+    if (currentTurn > 2) {
+        currentTurn -= 3;
+        advanceDay(1);
+    }
+    turns[currentTurn]();
+}
 
 profileBtn.addEventListener('click', () => {
     profileBox.style.display = 'flex';
@@ -340,16 +463,6 @@ for (let i = 0; i < infoJobsBtns.length; i++) {
     infoJobsBtns[i].onclick = btnfunciona2;
 }
 
-const trainBtns = document.getElementsByClassName('train-btns');
-for (let i = 0; i < trainBtns.length; i++) {
-    trainBtns[i].onclick = btnfunciona;
-}
-
-const infoTrainBtns = document.getElementsByClassName('train-info-btns');
-for (let i = 0; i < infoTrainBtns.length; i++) {
-    infoTrainBtns[i].onclick = btnfunciona2;
-}
-
 const cityBtns = document.getElementsByClassName('city-btns');
 cityBtns[0].addEventListener('click', () => {
     cityBox.style.display = 'none';
@@ -407,3 +520,59 @@ const eventsBtns = document.getElementsByClassName('events-btns');
 for (let i = 0; i < eventsBtns.length; i++) {
     eventsBtns[i].onclick = btnfunciona;
 }
+
+// training
+const trainBtns = document.getElementsByClassName('train-btns');
+trainBtns[0].addEventListener('click', () => {
+    getSwordXp(20);
+    updateHeroProfile();
+    advanceTurn(1);
+});
+
+function swordLevelUp() {
+    heroStats.swordLevel++
+}
+
+function tacticLevelUp() {
+    heroStats.tacticLevel++;
+}
+
+function getSwordXp(xp) {
+    if (profileStats.currentXp + xp >= 100) {
+        profileStats.currentXp = 0;
+        swordLevelUp();
+    } else {
+        profileStats.currentXp += xp;
+    }
+}
+
+function getTacticXp(xp) {
+    if (profileStats.currentTactic + xp >= 100) {
+        profileStats.currentTactic = 0;
+        tacticLevelUp();
+    } else {
+        profileStats.currentTactic += xp;
+    }
+}
+
+function readSwordBook() {
+    advanceTurn(1);
+    getSwordXp(30);
+    updateHeroProfile();
+}
+
+function readTacticBook() {
+    advanceTurn(1);
+    getTacticXp(30);
+    updateHeroProfile();
+}
+
+trainBtns[1].onclick = readSwordBook;
+trainBtns[2].onclick = readTacticBook;
+
+// info
+
+const infoTrainBtns = document.getElementsByClassName('train-info-btns');
+infoTrainBtns[0].addEventListener('click', () => {
+    alert('Usa um turno para praticar com a espada.');
+});

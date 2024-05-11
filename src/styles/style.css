@@ -308,3 +308,16 @@ body {
 .place-inventory {
     display: none;
 }
+
+#sword-xp, #leader-xp {
+    display: flex;
+}
+
+.feats {
+    display: flex;
+    gap: 5px;
+}
+
+#sword-level, #leader-level {
+    display: flex;
+}

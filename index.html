@@ -16,7 +16,7 @@
             </section>
             <section id="box-calendar">
                 <div id="day">1</div>/
-                <div id="month">primus</div>/
+                <div id="month"></div>/
                 <div id="year">1103</div>
             </section>
             <section id="box-turn">
@@ -44,18 +44,18 @@
                 <section id="profile">
                     <div id="box-name">Nome do heroi</div>
                     <div id="box-stats">
-                        <div id="force">10 <img src="./src/images/espada3.png" alt="force"></div>
-                        <div id="fame">10 <img src="./src/images/fame.png" alt=""></div>
-                        <div id="gold">100 <img src="./src/images/ouro.png" alt=""></div>
+                        <div id="force"><div id="force2-value">10</div><img src="./src/images/espada3.png" alt="force"></div>
+                        <div id="fame"><div id="fame2-value">10</div><img src="./src/images/fame.png" alt=""></div>
+                        <div id="gold"><div id="gold2-value">10</div><img src="./src/images/ouro.png" alt=""></div>
                     </div>
-                    <div id="sword-level">Level na espada</div>
-                    <div id="sword-xp">0/100</div>
-                    <div id="leader-level">level em taticas</div>
-                    <div id="leader-xp">0/100</div>
-                    <h4 class="feats">Contratos finalizados: 0</h4>
-                    <h4 class="feats">Torneios ganhos(duelos): 0</h4>
-                    <h4 class="feats">Torneios ganhos(justas): 0</h4>
-                    <h4 class="feats">Aventuras concluidas: 0</h4>
+                    <div id="sword-level">Level na espada:<div id="current-sword-level">1</div></div>
+                    <div id="sword-xp"><div id="current-xp-sword">0</div>/100</div>
+                    <div id="leader-level">level em taticas:<div id="current-tactic-level">0</div></div>
+                    <div id="leader-xp"><div id="current-xp-leader">0</div>/100</div>
+                    <h4 class="feats">Contratos finalizados: <div id="contract-values">0</div></h4>
+                    <h4 class="feats">Torneios ganhos(duelos): <div id="duel-values">0</div></h4>
+                    <h4 class="feats">Torneios ganhos(justas): <div id="justs-values">0</div></h4>
+                    <h4 class="feats">Aventuras concluidas: <div id="adventures-values">0</div></h4>
                     <button id="profile-go-back" class="left-go-back">Voltar</button>
                 </section>
                 <section id="relation">
@@ -83,18 +83,18 @@
             </section>
             <section id="box-right-side">
                 <button class="main-btns">Treinar</button>
-                <button class="main-btns">Bando</button>
+                <button class="main-btns" disabled>Bando</button>
                 <button class="main-btns">Trabalho</button>
-                <button class="main-btns">Contratos</button>
+                <button class="main-btns" disabled>Contratos</button>
                 <button class="main-btns">Cidade</button>
                 <button class="main-btns">Socializar</button>
                 <button class="main-btns">Aventuras</button>
                 <button class="main-btns">Eventos</button>
             </section>
             <section id="train">
-                <button class="train-btns">Treinar espada</button><button class="train-info-btns">i</button>
-                <button class="train-btns">Ler sobre Esgrima</button><button class="train-info-btns">i</button>
-                <button class="train-btns">Ler sobre Taticas</button><button class="train-info-btns">i</button>
+                <button class="train-btns">Treinar com espada</button><button class="train-info-btns">i</button>
+                <button class="train-btns" disabled>Ler sobre Esgrima</button><button class="train-info-btns" disabled>i</button>
+                <button class="train-btns" disabled>Ler sobre Taticas</button><button class="train-info-btns" disabled>i</button>
                 <button id="train-go-back" class="right-go-back">Voltar</button>
             </section>
             <section id="jobs">
@@ -123,108 +123,7 @@
 
             <section id="city-book">
                 <button id="book-go-back" class="right-city-back">Voltar</button>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/livro1.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Livro A</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>5000</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>5000</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="book-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/livro2.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Livro B</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>5000</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>5000</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="book-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/livro3.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Livro C</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>5000</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>5000</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="book-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/livro4.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Livro D</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>5000</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>5000</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="book-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/livro5.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Livro E</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>5000</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>5000</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="book-buy">C</button>
-                </div>
-                <div class="shop-card">
-                    <div class="item-img"><img src="./src/images/livro6.png" alt="icon"></div>
-                    <div class="item-desc">
-                        <h4 class="item-name">Livro F</h4>
-                        <div class="item-values">
-                            <div class="item-fame">
-                                <h4>5000</h4>
-                                <img src="./src/images/fame.png" alt="icon">
-                            </div>
-                            <div class="item-price">
-                                <h4>5000</h4>
-                                <img src="./src/images/ouro.png" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="book-buy">C</button>
-                </div>
+
             </section>
 
 
