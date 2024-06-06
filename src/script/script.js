@@ -330,6 +330,39 @@ const turns = [
     itsNight,
 ]
 
+function lookAtTurn() {
+    if (heroStats.fame > 100) {
+        mainBtns[3].disabled = false;
+    }
+    if (heroStats.fame > 500) {
+        mainBtns[1].disabled = false;
+    }
+    if (heroStats.fame > 500) {
+        socialBtns[2].disabled = false;
+    }
+    if (heroStats.fame > 1000) {
+        socialBtns[3].disabled = false;
+    }
+    if (currentTurn == 0 || currentTurn == 1) {
+        jobsBtns[0].disabled = false;
+        jobsBtns[1].disabled = false;
+        jobsBtns[2].disabled = false;
+        cityBtns[0].disabled = true;
+        cityBtns[1].disabled = false;
+        cityBtns[2].disabled = false;
+        cityBtns[3].disabled = false;
+    }
+    if (currentTurn == 2) {
+        jobsBtns[0].disabled = true;
+        jobsBtns[1].disabled = true;
+        jobsBtns[2].disabled = true;
+        cityBtns[0].disabled = false;
+        cityBtns[1].disabled = true;
+        cityBtns[2].disabled = true;
+        cityBtns[3].disabled = true;
+    }
+}
+
 function advanceTurn(times) {
     let fullDaysPassed = 0;
     fullDaysPassed = times / 3;
@@ -345,6 +378,7 @@ function advanceTurn(times) {
         advanceDay(1);
     }
     turns[currentTurn]();
+    lookAtTurn();
 }
 
 profileBtn.addEventListener('click', () => {
@@ -453,16 +487,6 @@ for (let i = 0; i < rightBackBtns.length; i++) {
     rightBackBtns[i].onclick = rightMainMenu; 
 }
 
-const jobsBtns = document.getElementsByClassName('jobs-btns');
-for (let i = 0; i < jobsBtns.length; i++) {
-    jobsBtns[i].onclick = btnfunciona;
-}
-
-const infoJobsBtns = document.getElementsByClassName('jobs-info-btns');
-for (let i = 0; i < infoJobsBtns.length; i++) {
-    infoJobsBtns[i].onclick = btnfunciona2;
-}
-
 const cityBtns = document.getElementsByClassName('city-btns');
 cityBtns[0].addEventListener('click', () => {
     cityBox.style.display = 'none';
@@ -522,12 +546,6 @@ for (let i = 0; i < eventsBtns.length; i++) {
 }
 
 // training
-const trainBtns = document.getElementsByClassName('train-btns');
-trainBtns[0].addEventListener('click', () => {
-    getSwordXp(20);
-    updateHeroProfile();
-    advanceTurn(1);
-});
 
 function swordLevelUp() {
     heroStats.swordLevel++
@@ -555,14 +573,29 @@ function getTacticXp(xp) {
     }
 }
 
+
+
+// botões - treinamento
+const infoTrainBtns = document.getElementsByClassName('train-info-btns');
+const trainBtns = document.getElementsByClassName('train-btns');
+
+trainBtns[0].addEventListener('click', () => {
+    getSwordXp(20);
+    alert("Você passa algumas horas treinando com a espada.");
+    updateHeroProfile();
+    advanceTurn(1);
+});
+
 function readSwordBook() {
     advanceTurn(1);
+    alert("Você passa algumas horas lendo sobre combate.");
     getSwordXp(30);
     updateHeroProfile();
 }
 
 function readTacticBook() {
     advanceTurn(1);
+    alert("Você passa algumas horas lendo sobre táticas.");
     getTacticXp(30);
     updateHeroProfile();
 }
@@ -570,9 +603,48 @@ function readTacticBook() {
 trainBtns[1].onclick = readSwordBook;
 trainBtns[2].onclick = readTacticBook;
 
-// info
-
-const infoTrainBtns = document.getElementsByClassName('train-info-btns');
 infoTrainBtns[0].addEventListener('click', () => {
     alert('Usa um turno para praticar com a espada.');
+});
+infoTrainBtns[1].addEventListener('click', () => {
+    alert('Usa um turno para ler sobre combate.');
+});
+infoTrainBtns[2].addEventListener('click', () => {
+    alert('Usa um turno para ler sobre táticas.');
+});
+
+// botões - trabalho
+const jobsBtns = document.getElementsByClassName('jobs-btns');
+const infoJobsBtns = document.getElementsByClassName('jobs-info-btns');
+
+jobsBtns[0].addEventListener('click', () => {
+    advanceTurn(1);
+    alert("Você passa algumas horas ajudando na colheita.");
+    heroStats.gold += 50; 
+    heroStats.fame += 10;
+    updateHeroProfile();
+});
+jobsBtns[1].addEventListener('click', () => {
+    advanceTurn(1);
+    alert("Você passa algumas horas cortando lenha.");
+    heroStats.gold += 50; 
+    heroStats.fame += 10;
+    updateHeroProfile();
+});
+jobsBtns[2].addEventListener('click', () => {
+    advanceTurn(1);
+    alert("Você passa algumas horas ajudando o ferreiro.");
+    heroStats.gold += 50; 
+    heroStats.fame += 10;
+    updateHeroProfile();
+});
+
+infoJobsBtns[0].addEventListener("click", () => {
+    alert("Passa um turno e rende em média 50g e 10f. Não é possível realizar a noite.");
+});
+infoJobsBtns[1].addEventListener("click", () => {
+    alert("Passa um turno e rende em média 50g e 10f. Não é possível realizar a noite.");
+});
+infoJobsBtns[2].addEventListener("click", () => {
+    alert("Passa um turno e rende em média 50g e 10f. Não é possível realizar a noite.");
 });
