@@ -45,7 +45,7 @@ const invHorse = inventoryItens[5];
 
 const heroStats = {
     force: 1,
-    fame: 1000,
+    fame: 0,
     gold: 1000,
     swordLevel: 1,
     tacticLevel: 0,
@@ -335,6 +335,10 @@ function itsMorningBtns() {
     cityBtns[1].disabled = false;
     cityBtns[2].disabled = false;
     cityBtns[3].disabled = false;
+    socialBtns[0].disabled = false;
+    socialBtns[1].disabled = false;
+    socialBtns[2].disabled = true;
+    socialBtns[3].disabled = true;
 }
 function itsEveningBtns() {
     jobsBtns[0].disabled = false;
@@ -347,6 +351,10 @@ function itsEveningBtns() {
     cityBtns[1].disabled = false;
     cityBtns[2].disabled = false;
     cityBtns[3].disabled = false;
+    socialBtns[0].disabled = false;
+    socialBtns[1].disabled = false;
+    socialBtns[2].disabled = true;
+    socialBtns[3].disabled = true;
 }
 function itsNightBtns() {
     jobsBtns[0].disabled = true;
@@ -359,23 +367,47 @@ function itsNightBtns() {
     cityBtns[1].disabled = true;
     cityBtns[2].disabled = true;
     cityBtns[3].disabled = true;
+    socialBtns[0].disabled = true;
+    socialBtns[1].disabled = true;
+    socialBtns[2].disabled = false;
+    socialBtns[3].disabled = false;
 }
 
 function lookForFame() {
-    if (heroStats.fame > 100) {
+    if (heroStats.fame >= 100) {
         mainBtns[3].disabled = false;
     }
-    if (heroStats.fame < 250) {
-        jobsBtns[3].disabled = true;
+    if (heroStats.fame >= 500) {
+        mainBtns[1].disabled = false;
     }
     if (heroStats.fame < 500) {
-        mainBtns[1].disabled = true;
-        jobsBtns[4].disabled = true;
-        jobsBtns[5].disabled = true;
         socialBtns[2].disabled = true;
     }
-    if (heroStats.fame > 1000) {
-        socialBtns[3].disabled = false;
+    if (heroStats.fame < 1000) {
+        socialBtns[3].disabled = true;
+    }
+}
+
+function lookForPower() {
+    if (heroStats.force > 250) {
+        jobsBtns[3].disabled = false;
+    } else {
+        jobsBtns[3].disabled = true;
+    }
+    if (heroStats.force > 500) {
+        jobsBtns[4].disabled = false;
+        jobsBtns[5].disabled = false;
+    } else {
+        jobsBtns[4].disabled = true;
+        jobsBtns[5].disabled = true;
+    }
+}
+
+function lookAtMonth() {
+    if (currentMonth == 3) {
+        eventsBtns[0].disabled = false;
+    } else {
+        eventsBtns[0].disabled = true;
     }
 }
 
@@ -388,6 +420,7 @@ function lookAtTurn() {
         itsNightBtns();
     }
     lookForFame();
+    lookForPower();
 }
 
 function advanceTurn(times) {
@@ -713,6 +746,7 @@ infoJobsBtns[5].addEventListener("click", () => {
 function startGame() {
     updateHeroProfile();
     updateTime();
+    lookAtMonth();
     lookAtTurn();
 }
 startGame();
