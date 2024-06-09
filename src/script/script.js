@@ -45,7 +45,7 @@ const invHorse = inventoryItens[5];
 
 const heroStats = {
     force: 1,
-    fame: 0,
+    fame: 1000,
     gold: 1000,
     swordLevel: 1,
     tacticLevel: 0,
@@ -96,8 +96,6 @@ function updateHeroProfile() {
     JustsNumbersTxt.innerText = profileStats.JustsNumbers;
     adventureNumbersTxt.innerText = profileStats.adventureNumbers;
 }
-
-updateHeroProfile();
 
 function createItemShop(where, icon, name, fame, price, place) {
     let itemShop = document.createElement('div');
@@ -199,10 +197,8 @@ function tryToBuyBook(value, book, name) {
 function addBookToHero(book) {
     if (book.includes('livro1')) {
         trainBtns[1].disabled = false;
-        infoTrainBtns[1].disabled = false;
     } else if (book.includes('livro2')) {
         trainBtns[2].disabled = false;
-        infoTrainBtns[2].disabled = false;
     } else if (book.includes('livro3')) {
         heroStats.swordBook = 2;
     } else if (book.includes('livro4')) {
@@ -276,8 +272,6 @@ const time = {
     year: 1103,
 }
 
-updateTime();
-
 function updateTime() {
     dayTxt.innerText = time.day;
     monthTxt.innerText = time.month;
@@ -330,37 +324,70 @@ const turns = [
     itsNight,
 ]
 
-function lookAtTurn() {
+function itsMorningBtns() {
+    jobsBtns[0].disabled = false;
+    jobsBtns[1].disabled = false;
+    jobsBtns[2].disabled = false;
+    jobsBtns[3].disabled = false;
+    jobsBtns[4].disabled = false;
+    jobsBtns[5].disabled = false;
+    cityBtns[0].disabled = true;
+    cityBtns[1].disabled = false;
+    cityBtns[2].disabled = false;
+    cityBtns[3].disabled = false;
+}
+function itsEveningBtns() {
+    jobsBtns[0].disabled = false;
+    jobsBtns[1].disabled = false;
+    jobsBtns[2].disabled = false;
+    jobsBtns[3].disabled = true;
+    jobsBtns[4].disabled = true;
+    jobsBtns[5].disabled = true;
+    cityBtns[0].disabled = true;
+    cityBtns[1].disabled = false;
+    cityBtns[2].disabled = false;
+    cityBtns[3].disabled = false;
+}
+function itsNightBtns() {
+    jobsBtns[0].disabled = true;
+    jobsBtns[1].disabled = true;
+    jobsBtns[2].disabled = true;
+    jobsBtns[3].disabled = true;
+    jobsBtns[4].disabled = true;
+    jobsBtns[5].disabled = true;
+    cityBtns[0].disabled = false;
+    cityBtns[1].disabled = true;
+    cityBtns[2].disabled = true;
+    cityBtns[3].disabled = true;
+}
+
+function lookForFame() {
     if (heroStats.fame > 100) {
         mainBtns[3].disabled = false;
     }
-    if (heroStats.fame > 500) {
-        mainBtns[1].disabled = false;
+    if (heroStats.fame < 250) {
+        jobsBtns[3].disabled = true;
     }
-    if (heroStats.fame > 500) {
-        socialBtns[2].disabled = false;
+    if (heroStats.fame < 500) {
+        mainBtns[1].disabled = true;
+        jobsBtns[4].disabled = true;
+        jobsBtns[5].disabled = true;
+        socialBtns[2].disabled = true;
     }
     if (heroStats.fame > 1000) {
         socialBtns[3].disabled = false;
     }
-    if (currentTurn == 0 || currentTurn == 1) {
-        jobsBtns[0].disabled = false;
-        jobsBtns[1].disabled = false;
-        jobsBtns[2].disabled = false;
-        cityBtns[0].disabled = true;
-        cityBtns[1].disabled = false;
-        cityBtns[2].disabled = false;
-        cityBtns[3].disabled = false;
+}
+
+function lookAtTurn() {
+    if (currentTurn == 0) {
+        itsMorningBtns();
+    } else if (currentTurn == 1) {
+        itsEveningBtns();
+    } else {
+        itsNightBtns();
     }
-    if (currentTurn == 2) {
-        jobsBtns[0].disabled = true;
-        jobsBtns[1].disabled = true;
-        jobsBtns[2].disabled = true;
-        cityBtns[0].disabled = false;
-        cityBtns[1].disabled = true;
-        cityBtns[2].disabled = true;
-        cityBtns[3].disabled = true;
-    }
+    lookForFame();
 }
 
 function advanceTurn(times) {
@@ -545,8 +572,7 @@ for (let i = 0; i < eventsBtns.length; i++) {
     eventsBtns[i].onclick = btnfunciona;
 }
 
-// training
-
+// treinamento
 function swordLevelUp() {
     heroStats.swordLevel++
 }
@@ -621,7 +647,7 @@ jobsBtns[0].addEventListener('click', () => {
     advanceTurn(1);
     alert("Você passa algumas horas ajudando na colheita.");
     heroStats.gold += 50; 
-    heroStats.fame += 10;
+    heroStats.fame += 100;
     updateHeroProfile();
 });
 jobsBtns[1].addEventListener('click', () => {
@@ -638,7 +664,31 @@ jobsBtns[2].addEventListener('click', () => {
     heroStats.fame += 10;
     updateHeroProfile();
 });
-
+jobsBtns[3].addEventListener('click', () => {
+    advanceTurn(3);
+    alert(`Você age como protetor de um mercador por um dia.`);
+    heroStats.gold += 50; 
+    heroStats.fame += 10;
+    updateHeroProfile();
+});
+jobsBtns[4].addEventListener('click', () => {
+    advanceTurn(3);
+    currentTurn = 0;
+    alert(`Você age como protetor de um nobre por um dia.`);
+    heroStats.gold += 50; 
+    heroStats.fame += 10;
+    updateHeroProfile();
+});
+jobsBtns[5].addEventListener('click', () => {
+    let numeroAleatorio = Math.floor(Math.random() * (7 - 3 + 1)) + 3;
+    console.log(numeroAleatorio);
+    advanceTurn(numeroAleatorio * 3);
+    currentTurn = 0;
+    alert(`Você viaja como guarda de uma caravana por ${numeroAleatorio} dias.`);
+    heroStats.gold += 50; 
+    heroStats.fame += 10;
+    updateHeroProfile();
+});
 infoJobsBtns[0].addEventListener("click", () => {
     alert("Passa um turno e rende em média 50g e 10f. Não é possível realizar a noite.");
 });
@@ -648,3 +698,21 @@ infoJobsBtns[1].addEventListener("click", () => {
 infoJobsBtns[2].addEventListener("click", () => {
     alert("Passa um turno e rende em média 50g e 10f. Não é possível realizar a noite.");
 });
+infoJobsBtns[3].addEventListener("click", () => {
+    alert("Passa um dia e rende em média 50g e 10f. Não é possível realizar após a manhã.");
+});
+infoJobsBtns[4].addEventListener("click", () => {
+    alert("Passa um dia e rende em média 50g e 10f. Não é possível realizar após a manhã.");
+});
+infoJobsBtns[5].addEventListener("click", () => {
+    alert("Passa entre três a sete dias e rende em média 50g e 10f. Não é possível realizar após a manhã.");
+});
+
+
+
+function startGame() {
+    updateHeroProfile();
+    updateTime();
+    lookAtTurn();
+}
+startGame();
